@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://d3yqk4hjjid2x"]
+[gd_scene load_steps=42 format=3 uid="uid://d3yqk4hjjid2x"]
 
 [ext_resource type="Texture2D" uid="uid://qq1yiaqt6yka" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Base Engine - Spritesheet.png" id="1_4o64b"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_k41cl"]
 [ext_resource type="Texture2D" uid="uid://7ufich3l2w75" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Full health.png" id="1_r2mhd"]
 [ext_resource type="Texture2D" uid="uid://ckf2a058u33h3" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Slight damage.png" id="2_6s84e"]
 [ext_resource type="Texture2D" uid="uid://c3866cg6y57wq" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/PNGs/Main Ship - Weapons - Auto Cannon.png" id="3_54ej1"]
@@ -178,6 +179,10 @@ region = Rect2(96, 48, 48, 48)
 atlas = ExtResource("1_4o64b")
 region = Rect2(144, 48, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp7jx"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(144, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mlat0"]
 animations = [{
 "frames": [{
@@ -206,8 +211,16 @@ animations = [{
 "texture": SubResource("AtlasTexture_q88xf")
 }],
 "loop": true,
-"name": &"default",
+"name": &"flight",
 "speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp7jx")
+}],
+"loop": true,
+"name": &"stationary",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gh2s"]
@@ -250,8 +263,10 @@ _data = {
 "immunity_frames": SubResource("Animation_xeinm")
 }
 
-[node name="Player" type="StaticBody2D"]
+[node name="Player" type="RigidBody2D"]
 collision_layer = 2
+gravity_scale = 0.0
+script = ExtResource("1_k41cl")
 
 [node name="mainShip" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_ct462")
@@ -280,7 +295,8 @@ texture = ExtResource("4_hcrjr")
 position = Vector2(0, 1)
 scale = Vector2(1, 1.2)
 sprite_frames = SubResource("SpriteFrames_mlat0")
-autoplay = "default"
+animation = &"stationary"
+autoplay = "stationary"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -298,6 +314,4 @@ libraries = {
 stream = ExtResource("18_h57l8")
 volume_db = 10.0
 
-[connection signal="animation_finished" from="mainShip" to="." method="_on_main_ship_animation_finished"]
 [connection signal="timeout" from="reloadTimer" to="." method="_on_reload_timer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
