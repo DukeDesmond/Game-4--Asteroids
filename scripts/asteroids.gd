@@ -41,11 +41,12 @@ func damage():
 
 func _on_animated_sprite_2d_animation_finished():
 		if animated_sprite_2d.animation == "explosion":
-			#queue_free()
-			asteroidsInstance1 = asteroids.instantiate() as RigidBody2D
-			asteroidsInstance2 = asteroids.instantiate() as RigidBody2D
-			asteroidsInstance1.global_position = muzzle1.global_position
-			asteroidsInstance2.global_position = muzzle2.global_position
+			queue_free()
+		#	asteroidsInstance1 = asteroids.instantiate() as RigidBody2D
+		#	asteroidsInstance2 = asteroids.instantiate() as RigidBody2D
+		#	asteroidsInstance1.global_position = muzzle1.global_position
+		#	asteroidsInstance2.global_position = muzzle2.global_position
 
-			get_parent().add_child(bulletInstance1)
-			get_parent().add_child(bulletInstance2)
+		#	get_parent().add_child(bulletInstance1)
+		# 	get_parent().add_child(bulletInstance2)
+  
