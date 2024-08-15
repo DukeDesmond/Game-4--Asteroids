@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwi8bbn7t4s6p"]
+
+[ext_resource type="Texture2D" uid="uid://bqpqsx1lqahgv" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main ship weapons/PNGs/Main ship weapon - Projectile - Auto cannon bullet.png" id="1_o8ast"]
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="2_uda0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjj5s"]
+atlas = ExtResource("1_o8ast")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yom4t"]
+atlas = ExtResource("1_o8ast")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16dpi"]
+atlas = ExtResource("1_o8ast")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64wis"]
+atlas = ExtResource("1_o8ast")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gqdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjj5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yom4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16dpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64wis")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_un116"]
+radius = 4.0
+height = 12.0
+
+[node name="Bullet" type="CharacterBody2D"]
+script = ExtResource("2_uda0r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4gqdk")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="VisibleNotifier" type="VisibleOnScreenEnabler2D" parent="."]
+enable_node_path = NodePath("../AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_un116")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleNotifier" to="." method="_on_visible_notifier_screen_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgt60hdpc5ntl"
+path="res://.godot/imported/mini_shoot.mp3-e2d26d0e70ad36232102c0f68d72e9b8.mp3str"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/mp3/laser/mini_shoot.mp3"
+dest_files=["res://.godot/imported/mini_shoot.mp3-e2d26d0e70ad36232102c0f68d72e9b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

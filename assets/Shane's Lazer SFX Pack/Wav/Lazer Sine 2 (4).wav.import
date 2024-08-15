@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bimjcxxj25qmf"
+path="res://.godot/imported/Lazer Sine 2 (4).wav-8b5121b1deb7283a842f02b9098cc011.sample"
+
+[deps]
+
+source_file="res://assets/Shane's Lazer SFX Pack/Wav/Lazer Sine 2 (4).wav"
+dest_files=["res://.godot/imported/Lazer Sine 2 (4).wav-8b5121b1deb7283a842f02b9098cc011.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

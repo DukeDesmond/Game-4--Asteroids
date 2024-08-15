@@ -1,0 +1,303 @@
+[gd_scene load_steps=40 format=3 uid="uid://d3yqk4hjjid2x"]
+
+[ext_resource type="Texture2D" uid="uid://qq1yiaqt6yka" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Base Engine - Spritesheet.png" id="1_4o64b"]
+[ext_resource type="Texture2D" uid="uid://7ufich3l2w75" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Full health.png" id="1_r2mhd"]
+[ext_resource type="Texture2D" uid="uid://ckf2a058u33h3" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Slight damage.png" id="2_6s84e"]
+[ext_resource type="Texture2D" uid="uid://c3866cg6y57wq" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/PNGs/Main Ship - Weapons - Auto Cannon.png" id="3_54ej1"]
+[ext_resource type="Texture2D" uid="uid://d0fwqvbvt624u" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Damaged.png" id="3_imr73"]
+[ext_resource type="Texture2D" uid="uid://bow50vq7ghn4u" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Very damaged.png" id="4_frdhr"]
+[ext_resource type="Texture2D" uid="uid://bg1hrkj82c87x" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engines/PNGs/Main Ship - Engines - Base Engine.png" id="4_hcrjr"]
+[ext_resource type="Texture2D" uid="uid://ch5hi8fgkfml4" path="res://assets/2D explosions/Type 1/1.png" id="5_wbv71"]
+[ext_resource type="Texture2D" uid="uid://dnyaty24vhvq6" path="res://assets/2D explosions/Type 1/2.png" id="6_m83k6"]
+[ext_resource type="Texture2D" uid="uid://ddr2f5whafm0o" path="res://assets/2D explosions/Type 1/3.png" id="7_77pqy"]
+[ext_resource type="Texture2D" uid="uid://5hfjeqblxnwy" path="res://assets/2D explosions/Type 1/4.png" id="8_oqur3"]
+[ext_resource type="Texture2D" uid="uid://tgg8yq4t5cyx" path="res://assets/2D explosions/Type 1/5.png" id="9_wg68j"]
+[ext_resource type="Texture2D" uid="uid://d2er1namy0ft5" path="res://assets/2D explosions/Type 1/6.png" id="10_mq4ms"]
+[ext_resource type="Texture2D" uid="uid://xic41s5fcnly" path="res://assets/2D explosions/Type 1/7.png" id="11_e4a6r"]
+[ext_resource type="Texture2D" uid="uid://ck8sj8xqadcdp" path="res://assets/2D explosions/Type 1/8.png" id="12_t4kyg"]
+[ext_resource type="AudioStream" uid="uid://bwvbtll5v5mcq" path="res://assets/Enprimer Spaceship SFX/wave/utility/eff6.wav" id="18_h57l8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ct462"]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qku3a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6s84e")
+}],
+"loop": false,
+"name": &"damage1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_imr73")
+}],
+"loop": false,
+"name": &"damage2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_frdhr")
+}],
+"loop": false,
+"name": &"damage3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wbv71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m83k6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_77pqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oqur3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wg68j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mq4ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e4a6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t4kyg")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r2mhd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in1b1"]
+atlas = ExtResource("3_54ej1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gty3q"]
+atlas = ExtResource("3_54ej1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vweb"]
+atlas = ExtResource("3_54ej1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjdfy"]
+atlas = ExtResource("3_54ej1")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nremc"]
+atlas = ExtResource("3_54ej1")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk0r1"]
+atlas = ExtResource("3_54ej1")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0valj"]
+atlas = ExtResource("3_54ej1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_po5xu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in1b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gty3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vweb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjdfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nremc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk0r1")
+}],
+"loop": true,
+"name": &"firing",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0valj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 25.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gis87"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yft3l"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he8g0"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7ey8"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pjwv"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg4a4"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob675"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q88xf"]
+atlas = ExtResource("1_4o64b")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mlat0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gis87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yft3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he8g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7ey8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pjwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg4a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob675")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q88xf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gh2s"]
+radius = 8.06226
+
+[sub_resource type="Animation" id="Animation_8ox8g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mainShip:material:shader_parameter/Hit_Flash")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xeinm"]
+resource_name = "immunity_frames"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mainShip:material:shader_parameter/Hit_Flash")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yq28s"]
+_data = {
+"RESET": SubResource("Animation_8ox8g"),
+"immunity_frames": SubResource("Animation_xeinm")
+}
+
+[node name="Player" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="mainShip" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_ct462")
+sprite_frames = SubResource("SpriteFrames_qku3a")
+autoplay = "default"
+
+[node name="weapons" type="AnimatedSprite2D" parent="mainShip"]
+z_index = -1
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_po5xu")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Muzzle1" type="Marker2D" parent="mainShip/weapons"]
+position = Vector2(-9, -12)
+
+[node name="Muzzle2" type="Marker2D" parent="mainShip/weapons"]
+position = Vector2(9, -12)
+
+[node name="engine" type="Sprite2D" parent="mainShip"]
+z_index = -1
+position = Vector2(0, 4)
+texture = ExtResource("4_hcrjr")
+
+[node name="engineEffect" type="AnimatedSprite2D" parent="mainShip/engine"]
+position = Vector2(0, 1)
+scale = Vector2(1, 1.2)
+sprite_frames = SubResource("SpriteFrames_mlat0")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_4gh2s")
+
+[node name="reloadTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yq28s")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_h57l8")
+volume_db = 10.0
+
+[connection signal="animation_finished" from="mainShip" to="." method="_on_main_ship_animation_finished"]
+[connection signal="timeout" from="reloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

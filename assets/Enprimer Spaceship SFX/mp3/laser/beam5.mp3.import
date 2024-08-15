@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bau31utxentuw"
+path="res://.godot/imported/beam5.mp3-62a231e7bf31227229b58c76711bd410.mp3str"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/mp3/laser/beam5.mp3"
+dest_files=["res://.godot/imported/beam5.mp3-62a231e7bf31227229b58c76711bd410.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

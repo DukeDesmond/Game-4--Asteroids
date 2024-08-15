@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jwve1hr3j7dr"
+path="res://.godot/imported/Lazer Triangle (7).mp3-78113bd369ef41e8bcdeb5fe007b3649.mp3str"
+
+[deps]
+
+source_file="res://assets/Shane's Lazer SFX Pack/MP3/Lazer Triangle (7).mp3"
+dest_files=["res://.godot/imported/Lazer Triangle (7).mp3-78113bd369ef41e8bcdeb5fe007b3649.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

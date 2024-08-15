@@ -1,0 +1,169 @@
+[gd_scene load_steps=22 format=3 uid="uid://ruirb1bqdfrw"]
+
+[ext_resource type="Texture2D" uid="uid://dy3ljgpmlo8wa" path="res://assets/Foozle's Void Pack/Foozle_2DS0012_Void_FleetPack_1/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/PNGs/Kla'ed - Fighter - Base.png" id="1_rltyy"]
+[ext_resource type="Script" path="res://script/enemyFighter.gd" id="1_sos1v"]
+[ext_resource type="Shader" uid="uid://b8n8jq35to8w4" path="res://shaders/hit_flash.tres" id="3_1wxh1"]
+[ext_resource type="Texture2D" uid="uid://cdn5powsibaws" path="res://assets/Foozle's Void Pack/Foozle_2DS0012_Void_FleetPack_1/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Destruction/PNGs/Kla'ed - Fighter - Destruction.png" id="4_10e13"]
+[ext_resource type="AudioStream" uid="uid://bve6cih7laudj" path="res://assets/Enprimer Spaceship SFX/wave/explosion/explosion3.wav" id="5_334c6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jy7kh"]
+resource_local_to_scene = true
+shader = ExtResource("3_1wxh1")
+shader_parameter/Hit_Flash = false
+shader_parameter/Tint = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogvqu"]
+atlas = ExtResource("4_10e13")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3wn7"]
+atlas = ExtResource("4_10e13")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cwty"]
+atlas = ExtResource("4_10e13")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10r41"]
+atlas = ExtResource("4_10e13")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uncon"]
+atlas = ExtResource("4_10e13")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11rxe"]
+atlas = ExtResource("4_10e13")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jdqr"]
+atlas = ExtResource("4_10e13")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v5wx"]
+atlas = ExtResource("4_10e13")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuw5i"]
+atlas = ExtResource("4_10e13")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gw72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogvqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3wn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cwty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10r41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uncon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11rxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jdqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v5wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuw5i")
+}],
+"loop": false,
+"name": &"death",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rltyy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jakf"]
+size = Vector2(24, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y83x5"]
+radius = 6.08276
+
+[sub_resource type="Animation" id="Animation_muyr4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Hit_Flash")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2aabh"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Hit_Flash")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_behvi"]
+_data = {
+"RESET": SubResource("Animation_muyr4"),
+"hit_flash": SubResource("Animation_2aabh")
+}
+
+[node name="EnemyFighter" type="CharacterBody2D"]
+rotation = 3.14159
+collision_mask = 2
+script = ExtResource("1_sos1v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jy7kh")
+sprite_frames = SubResource("SpriteFrames_5gw72")
+animation = &"death"
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." groups=["score"]]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3jakf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y83x5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_behvi")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_334c6")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

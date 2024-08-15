@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctwasofds0jn2"
+path="res://.godot/imported/blurp_shoot.wav-e0d10d388880aaace098dbb73e14baa0.sample"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/wave/laser/blurp_shoot.wav"
+dest_files=["res://.godot/imported/blurp_shoot.wav-e0d10d388880aaace098dbb73e14baa0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

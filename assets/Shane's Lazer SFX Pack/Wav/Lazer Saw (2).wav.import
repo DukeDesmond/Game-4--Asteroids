@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bi6popuarsys5"
+path="res://.godot/imported/Lazer Saw (2).wav-9fe2607f3e3a4b1569efcb73cbc64837.sample"
+
+[deps]
+
+source_file="res://assets/Shane's Lazer SFX Pack/Wav/Lazer Saw (2).wav"
+dest_files=["res://.godot/imported/Lazer Saw (2).wav-9fe2607f3e3a4b1569efcb73cbc64837.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

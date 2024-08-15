@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cveq4vtndbbaf"
+path="res://.godot/imported/engine2.wav-590cad8cf677c3a506bfd3e6ca8a534d.sample"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/wave/engine/engine2.wav"
+dest_files=["res://.godot/imported/engine2.wav-590cad8cf677c3a506bfd3e6ca8a534d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

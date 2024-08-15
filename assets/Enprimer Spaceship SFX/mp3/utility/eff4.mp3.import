@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dohpm8sqp0fm8"
+path="res://.godot/imported/eff4.mp3-9635a2c6c1ba40304b5d41bc9bf8a199.mp3str"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/mp3/utility/eff4.mp3"
+dest_files=["res://.godot/imported/eff4.mp3-9635a2c6c1ba40304b5d41bc9bf8a199.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

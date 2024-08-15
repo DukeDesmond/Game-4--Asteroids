@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cma1diuiku5ax"
+path="res://.godot/imported/explosion12.wav-8534c1e1f6500dbe50baf93e99de8555.sample"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/wave/explosion/explosion12.wav"
+dest_files=["res://.godot/imported/explosion12.wav-8534c1e1f6500dbe50baf93e99de8555.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

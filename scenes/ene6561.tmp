@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://ruirb1bqdfrw"]
+
+[ext_resource type="Texture2D" uid="uid://dy3ljgpmlo8wa" path="res://assets/Foozle's Void Pack/Foozle_2DS0012_Void_FleetPack_1/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/PNGs/Kla'ed - Fighter - Base.png" id="1_rltyy"]
+[ext_resource type="Script" path="res://scenes/enemyFighter.gd" id="1_sos1v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmwq1"]
+radius = 13.0
+
+[node name="EnemyFighter" type="CharacterBody2D"]
+script = ExtResource("1_sos1v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rltyy")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pmwq1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pmwq1")
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

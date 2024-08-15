@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwd65ca3ui8xw"
+path="res://.godot/imported/Lazer Retangle (3).mp3-c686cede5c3d8c6469bd143214b1969f.mp3str"
+
+[deps]
+
+source_file="res://assets/Shane's Lazer SFX Pack/MP3/Lazer Retangle (3).mp3"
+dest_files=["res://.godot/imported/Lazer Retangle (3).mp3-c686cede5c3d8c6469bd143214b1969f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dau3digdcteiq"
+path="res://.godot/imported/xs_laser.wav-9e00c29170080678f00e5b34fc0e3769.sample"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/wave/laser/xs_laser.wav"
+dest_files=["res://.godot/imported/xs_laser.wav-9e00c29170080678f00e5b34fc0e3769.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

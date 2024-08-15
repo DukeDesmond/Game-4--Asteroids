@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ktoeyajgsik"]
+
+[ext_resource type="AudioStream" uid="uid://c06ua7odxayjf" path="res://assets/DOS-88 Musics/DOS-88 - City Stomper (Loop Edit).mp3" id="1_bnrxh"]
+[ext_resource type="Script" path="res://script/global_music.gd" id="2_m3fys"]
+
+[node name="GlobalMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_bnrxh")
+autoplay = true
+script = ExtResource("2_m3fys")

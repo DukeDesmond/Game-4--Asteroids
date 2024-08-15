@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dww6nigr42ilc"
+path="res://.godot/imported/explosion8.mp3-3390ff26d49b4ea34627b6b4cf6f39b1.mp3str"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/mp3/explosion/explosion8.mp3"
+dest_files=["res://.godot/imported/explosion8.mp3-3390ff26d49b4ea34627b6b4cf6f39b1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bl4js746wmbhu"
+path="res://.godot/imported/Lazer Sine 2 (2).mp3-c06cc0433b5a5ce12f6102c9d32379ac.mp3str"
+
+[deps]
+
+source_file="res://assets/Shane's Lazer SFX Pack/MP3/Lazer Sine 2 (2).mp3"
+dest_files=["res://.godot/imported/Lazer Sine 2 (2).mp3-c06cc0433b5a5ce12f6102c9d32379ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

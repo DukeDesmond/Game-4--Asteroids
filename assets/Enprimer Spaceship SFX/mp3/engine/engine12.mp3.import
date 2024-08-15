@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://br3b1l82nydv"
+path="res://.godot/imported/engine12.mp3-3434935d8b89196441e048c30ef989e7.mp3str"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/mp3/engine/engine12.mp3"
+dest_files=["res://.godot/imported/engine12.mp3-3434935d8b89196441e048c30ef989e7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

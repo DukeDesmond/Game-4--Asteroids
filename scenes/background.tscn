@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlobssna4og05"]
+
+[ext_resource type="Texture2D" uid="uid://ddmmysoqex0xp" path="res://assets/Foozle's Void Pack/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="1_xcbf4"]
+[ext_resource type="Texture2D" uid="uid://u5ag7fy57rf4" path="res://assets/Foozle's Void Pack/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 02 - Stars.png" id="2_ciscn"]
+[ext_resource type="Texture2D" uid="uid://umxskcdq45n8" path="res://assets/Foozle's Void Pack/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="3_q1aar"]
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, 285)
+scale = Vector2(2, 2)
+texture = ExtResource("1_xcbf4")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(0, 285)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ciscn")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(0, 285)
+scale = Vector2(2, 2)
+texture = ExtResource("3_q1aar")

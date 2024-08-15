@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvsmngfalk1f0"
+path="res://.godot/imported/laser_shoot3.mp3-ea334610c8fdc11e6ee85ecccb896ffb.mp3str"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/mp3/laser/laser_shoot3.mp3"
+dest_files=["res://.godot/imported/laser_shoot3.mp3-ea334610c8fdc11e6ee85ecccb896ffb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

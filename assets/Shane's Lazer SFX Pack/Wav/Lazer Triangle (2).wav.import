@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cb2uyyvfef0of"
+path="res://.godot/imported/Lazer Triangle (2).wav-2da28da6ccba34929aadbe22f1994ada.sample"
+
+[deps]
+
+source_file="res://assets/Shane's Lazer SFX Pack/Wav/Lazer Triangle (2).wav"
+dest_files=["res://.godot/imported/Lazer Triangle (2).wav-2da28da6ccba34929aadbe22f1994ada.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

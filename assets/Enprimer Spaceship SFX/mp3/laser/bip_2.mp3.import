@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfn0gcn7gmb2j"
+path="res://.godot/imported/bip_2.mp3-60e90b276f90b98021e576c924b8d7b3.mp3str"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/mp3/laser/bip_2.mp3"
+dest_files=["res://.godot/imported/bip_2.mp3-60e90b276f90b98021e576c924b8d7b3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

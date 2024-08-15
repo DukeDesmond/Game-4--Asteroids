@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmunf7btyu08m"
+path="res://.godot/imported/eff11.mp3-76720a3b5f81b0492f7d12bec4517897.mp3str"
+
+[deps]
+
+source_file="res://assets/Enprimer Spaceship SFX/mp3/utility/eff11.mp3"
+dest_files=["res://.godot/imported/eff11.mp3-76720a3b5f81b0492f7d12bec4517897.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
