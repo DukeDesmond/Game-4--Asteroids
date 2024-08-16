@@ -5,8 +5,9 @@ var asteroids = preload("res://scenes/asteroids.tscn")
 const Utils = preload("res://scripts/Utils/Utils.gd")
 @onready var asteroid_spawn_path = $AsteroidPath/AsteroidSpawnPath
 
-@export var count : int = 3
-var win : int = count
+@export var count : int = 1
+var win : int = count * (2*2)
+@onready var timer = $Timer
 
 func _ready():
 	for i in range(count):
@@ -23,7 +24,7 @@ func get_random_position_from_screen_react() -> Vector2:
 func spawn_asteroid(spawn_position: Vector2, size: Utils.AsteroidSize = Utils.AsteroidSize.BIG ):
 	var asteroidsInstance = asteroids.instantiate()
 	asteroidsInstance.global_position = spawn_position
-	get_tree().root.add_child.call_deferred(asteroidsInstance)
+	self.add_child.call_deferred(asteroidsInstance)
 	asteroidsInstance.on_asteroid_destroyed.connect(asteroid_destroyed)
 	asteroidsInstance.size = size
 
@@ -35,3 +36,15 @@ func asteroid_destroyed(position : Vector2, size: Utils.AsteroidSize):
 			spawn_asteroid(position, size)
 	else:
 		win -= 1
+		
+	if win == 0:
+		GameManager.add_wave()
+		count = count * 2
+		win = count * (2*2)
+		timer.start(3)
+
+func _on_timer_timeout():
+	for i in range(count):
+		var random_spawn_position = get_random_position_from_screen_react()
+		spawn_asteroid(random_spawn_position, Utils.AsteroidSize.BIG)
+		timer.stop()

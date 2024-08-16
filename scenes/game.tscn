@@ -15,6 +15,30 @@ point_count = 5
 
 [node name="Game" type="Node2D"]
 
+[node name="ScreenBoundry" parent="." node_paths=PackedStringArray("node") instance=ExtResource("3_00d03")]
+node = NodePath("../Player")
+
+[node name="Background" parent="." instance=ExtResource("1_hhxn5")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("GameManager") instance=ExtResource("2_pdout")]
+z_index = -1
+position = Vector2(579, 332)
+GameManager = NodePath("../GameManager")
+
+[node name="AsteroidSpwaner" parent="." node_paths=PackedStringArray("GameManager") instance=ExtResource("3_lnpny")]
+GameManager = NodePath("../GameManager")
+
+[node name="AsteroidPath" type="Path2D" parent="AsteroidSpwaner"]
+curve = SubResource("Curve2D_ow8jx")
+
+[node name="AsteroidSpawnPath" type="PathFollow2D" parent="AsteroidSpwaner/AsteroidPath"]
+position = Vector2(150.94, 102.708)
+rotation = -1.56187
+progress = 2569.39
+h_offset = -5.905
+
+[node name="Timer" type="Timer" parent="AsteroidSpwaner"]
+
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_250mm")
 
@@ -31,25 +55,34 @@ offset_right = 638.0
 offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("2_4ligq")
 theme_override_font_sizes/font_size = 32
-text = "Wave:"
+text = "Wave: 1"
 
-[node name="ScreenBoundry" parent="." node_paths=PackedStringArray("node") instance=ExtResource("3_00d03")]
-node = NodePath("../Player")
+[node name="Highscore" type="Label" parent="GameManager"]
+offset_left = 342.0
+offset_top = 238.0
+offset_right = 827.0
+offset_bottom = 419.0
+theme_override_fonts/font = ExtResource("2_4ligq")
+theme_override_font_sizes/font_size = 32
 
-[node name="Background" parent="." instance=ExtResource("1_hhxn5")]
+[node name="Restart" type="Button" parent="GameManager"]
+offset_left = 467.0
+offset_top = 428.0
+offset_right = 691.0
+offset_bottom = 468.0
+theme_override_fonts/font = ExtResource("2_4ligq")
+theme_override_font_sizes/font_size = 32
+text = "Restart"
 
-[node name="Player" parent="." instance=ExtResource("2_pdout")]
-z_index = 5
-position = Vector2(579, 332)
+[node name="Start" type="Button" parent="GameManager"]
+offset_left = 491.0
+offset_top = 248.0
+offset_right = 499.0
+offset_bottom = 256.0
+theme_override_fonts/font = ExtResource("2_4ligq")
+theme_override_font_sizes/font_size = 32
+text = "Start"
 
-[node name="AsteroidSpwaner" parent="." node_paths=PackedStringArray("GameManager") instance=ExtResource("3_lnpny")]
-GameManager = NodePath("../GameManager")
-
-[node name="AsteroidPath" type="Path2D" parent="AsteroidSpwaner"]
-curve = SubResource("Curve2D_ow8jx")
-
-[node name="AsteroidSpawnPath" type="PathFollow2D" parent="AsteroidSpwaner/AsteroidPath"]
-position = Vector2(150.94, 102.708)
-rotation = -1.56187
-progress = 2569.39
-h_offset = -5.905
+[connection signal="timeout" from="AsteroidSpwaner/Timer" to="AsteroidSpwaner" method="_on_timer_timeout"]
+[connection signal="pressed" from="GameManager/Restart" to="GameManager" method="_on_restart_pressed"]
+[connection signal="pressed" from="GameManager/Start" to="GameManager" method="_on_start_pressed"]

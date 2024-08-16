@@ -292,6 +292,7 @@ animations = [{
 }]
 
 [node name="Background" type="Node2D"]
+z_index = -2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

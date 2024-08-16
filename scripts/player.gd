@@ -11,7 +11,7 @@ extends RigidBody2D
 @onready var reload_timer = $reloadTimer
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 @onready var collision_shape_2d = $CollisionShape2D
-
+@export var GameManager : Node
 
 var reload : bool = false
 var muzzle1Position
@@ -22,6 +22,7 @@ var bullet = preload("res://scenes/bullet.tscn")
 var life: int = 4
 var thrust : float = 100
 var torque = 1500
+var playerDead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,11 +37,11 @@ func _physics_process(delta):
 	#var direction_to_mouse = player.global_position.direction_to(get_global_mouse_position())
 	#var angle = player_facing_direction.angle_to(direction_to_mouse)
 	#print(rad_to_deg(angle))
-	
-	look_at((get_global_mouse_position()))
+	if Global.status == true:
+		look_at((get_global_mouse_position()))
 	
 	# Handle shooting.
-	if (Input.is_action_pressed("ui_accept") or Input.is_action_pressed("Mouse_click_left")) and reload == false:
+	if (Input.is_action_pressed("ui_accept") or Input.is_action_pressed("Mouse_click_left")) and reload == false and Global.status == true:
 		playerShoot()
 		apply_central_impulse(Vector2(-1, 0).rotated(rotation) * thrust * delta * 5)
 		reload = true
@@ -59,7 +60,7 @@ func _physics_process(delta):
 	#	player.rotate(direction * angular_speed * delta)
 	#	apply_torque(torque * direction * 100)
 		
-	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("Mouse_click_right"):
+	if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("Mouse_click_right")) and Global.status == true:
 		apply_central_impulse(Vector2(1, 0).rotated(rotation) * thrust * delta)
 		if engine_effect.animation == "stationary":
 			engine_effect.play("flight")
@@ -70,14 +71,17 @@ func _physics_process(delta):
 
 
 func playerShoot ():
-	var bulletInstance1 = bullet.instantiate() as Node2D
-	var bulletInstance2 = bullet.instantiate() as Node2D
-	bulletInstance1.global_position = muzzle1.global_position
-	bulletInstance1.global_rotation = muzzle1.global_rotation
-	bulletInstance2.global_position = muzzle2.global_position
-	bulletInstance2.global_rotation = muzzle2.global_rotation
-	get_parent().add_child(bulletInstance1)
-	get_parent().add_child(bulletInstance2)
+	if playerDead==false:
+		var bulletInstance1 = bullet.instantiate() as Node2D
+		var bulletInstance2 = bullet.instantiate() as Node2D
+		bulletInstance1.global_position = muzzle1.global_position
+		bulletInstance1.global_rotation = muzzle1.global_rotation
+		bulletInstance2.global_position = muzzle2.global_position
+		bulletInstance2.global_rotation = muzzle2.global_rotation
+		get_parent().add_child(bulletInstance1)
+		get_parent().add_child(bulletInstance2)
+	else:
+		pass
 	
 func _on_reload_timer_timeout():
 	reload = false
@@ -109,12 +113,12 @@ func player_damage():
 		weapons.visible = false
 		engine.visible = false
 		engine_effect.visible = false
-		speed = 0
 		audio_stream_player_2d.stream = load("res://assets/Enprimer Spaceship SFX/wave/explosion/explosion12.wav")
 		audio_stream_player_2d.play()
 		main_ship.play("death")
 		collision_shape_2d.set_deferred("disabled", true)
-		
+		playerDead = true
+		GameManager.add_highscore()
 
 
 
