@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://d3yqk4hjjid2x"]
+[gd_scene load_steps=45 format=3 uid="uid://d3yqk4hjjid2x"]
 
 [ext_resource type="Texture2D" uid="uid://qq1yiaqt6yka" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Base Engine - Spritesheet.png" id="1_4o64b"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k41cl"]
 [ext_resource type="Texture2D" uid="uid://7ufich3l2w75" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Full health.png" id="1_r2mhd"]
+[ext_resource type="Shader" uid="uid://b8n8jq35to8w4" path="res://shaders/hit_flash.tres" id="2_6crbd"]
 [ext_resource type="Texture2D" uid="uid://ckf2a058u33h3" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Slight damage.png" id="2_6s84e"]
 [ext_resource type="Texture2D" uid="uid://c3866cg6y57wq" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/PNGs/Main Ship - Weapons - Auto Cannon.png" id="3_54ej1"]
 [ext_resource type="Texture2D" uid="uid://d0fwqvbvt624u" path="res://assets/Foozle's Void Pack/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Damaged.png" id="3_imr73"]
@@ -16,10 +17,18 @@
 [ext_resource type="Texture2D" uid="uid://d2er1namy0ft5" path="res://assets/2D explosions/Type 1/6.png" id="10_mq4ms"]
 [ext_resource type="Texture2D" uid="uid://xic41s5fcnly" path="res://assets/2D explosions/Type 1/7.png" id="11_e4a6r"]
 [ext_resource type="Texture2D" uid="uid://ck8sj8xqadcdp" path="res://assets/2D explosions/Type 1/8.png" id="12_t4kyg"]
+[ext_resource type="Texture2D" uid="uid://dkqvikxhlmmvo" path="res://assets/Foozle's Void Pack/Foozle_2DS0015_Void_EnvironmentPack/Asteroids/PNGs/Asteroid 01 - Explode.png" id="14_8lhjl"]
 [ext_resource type="AudioStream" uid="uid://bwvbtll5v5mcq" path="res://assets/Enprimer Spaceship SFX/wave/utility/eff6.wav" id="18_h57l8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ct462"]
 resource_local_to_scene = true
+shader = ExtResource("2_6crbd")
+shader_parameter/Hit_Flash = false
+shader_parameter/Tint = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn4l8"]
+atlas = ExtResource("14_8lhjl")
+region = Rect2(672, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qku3a"]
 animations = [{
@@ -71,6 +80,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("12_t4kyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn4l8")
 }],
 "loop": false,
 "name": &"death",
@@ -224,22 +236,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gh2s"]
-radius = 8.06226
+radius = 12.7366
 
 [sub_resource type="Animation" id="Animation_8ox8g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("mainShip:material:shader_parameter/Hit_Flash")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
+length = 0.01
 
 [sub_resource type="Animation" id="Animation_xeinm"]
 resource_name = "immunity_frames"
@@ -265,11 +265,14 @@ _data = {
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 2
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("1_k41cl")
 
 [node name="mainShip" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_ct462")
+rotation = 1.5708
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qku3a")
 autoplay = "default"
 
@@ -295,12 +298,13 @@ texture = ExtResource("4_hcrjr")
 position = Vector2(0, 1)
 scale = Vector2(1, 1.2)
 sprite_frames = SubResource("SpriteFrames_mlat0")
-animation = &"stationary"
+animation = &"flight"
 autoplay = "stationary"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 position = Vector2(0, 1)
+scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_4gh2s")
 
 [node name="reloadTimer" type="Timer" parent="."]
@@ -309,9 +313,11 @@ shape = SubResource("CircleShape2D_4gh2s")
 libraries = {
 "": SubResource("AnimationLibrary_yq28s")
 }
+autoplay = "RESET"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_h57l8")
 volume_db = 10.0
 
 [connection signal="timeout" from="reloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

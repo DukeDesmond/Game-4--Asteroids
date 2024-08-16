@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn8ibdmuqs6ac"]
+
+[ext_resource type="Script" path="res://scripts/screen_boundry.gd" id="1_pbymk"]
+
+[node name="ScreenBoundry" type="Node"]
+script = ExtResource("1_pbymk")

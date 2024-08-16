@@ -22,4 +22,3 @@ func _on_area_2d_body_entered(body):
 	if body.has_method("damage"):
 		body.damage()
 		queue_free()
-		
